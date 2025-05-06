@@ -64,6 +64,23 @@ def upload_invoice():
 
     return jsonify({'message': 'Invoice uploaded and processed successfully', 'invoice_id': new_invoice.id})
 
+# Fetch All Invoices
+@app.route('/invoices', methods=['GET'])
+def get_invoices():
+    invoices = Invoice.query.all()
+    invoice_list = []
+    for invoice in invoices:
+        invoice_list.append({
+            'id': invoice.id,
+            'vendor': invoice.vendor,
+            'date': str(invoice.date),
+            'amount': invoice.amount,
+            'location': invoice.location.name,
+            'status': invoice.status,
+            'description': invoice.description
+        })
+    return jsonify(invoice_list)
+
 # Mock OCR Processing Service
 def mock_ocr_service(filepath):
     # Simulates OCR extraction from a PDF. This is mock data and should be replaced with real OCR logic.
