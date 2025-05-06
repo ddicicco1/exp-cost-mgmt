@@ -1,1 +1,1 @@
-flask
+flask\nflask_sqlalchemy\npsycopg2-binary\n
