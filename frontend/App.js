@@ -1,0 +1,1 @@
+import React from 'react';\nimport { BrowserRouter as Router, Route, Switch } from 'react-router-dom';\n\nfunction App() {\n  return (\n    <Router>\n      <Switch>\n        <Route path='/' exact>\n          <h1>Welcome to ECM Dashboard</h1>\n        </Route>\n      </Switch>\n    </Router>\n  );\n}\n\nexport default App;\n
